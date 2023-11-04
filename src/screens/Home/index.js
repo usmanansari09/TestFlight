@@ -111,6 +111,8 @@ const FlightSearch = ({ navigation }) => {
   const [show, setShow] = useState(false);
   const [adultsVal, setAdult] = useState(false);
   const [childsVal, setChilds] = useState(false);
+  const [infantVal, setInfant] = useState(false);
+  const [directVal, setDirect] = useState(false);
   const [showDate1, setShowDate1] = useState(false);
   const [showDate2, setShowDate2] = useState(false);
   const handlePressInner = (buttonNumber, value) => {
@@ -243,6 +245,18 @@ const FlightSearch = ({ navigation }) => {
       errorAlert('Please enter Adult');
       return;
     }
+    if (!childsVal) {
+      errorAlert('Please enter Child');
+      return;
+    }
+    if (!infantVal) {
+      errorAlert('Please enter Infants');
+      return;
+    }
+    if (!directVal) {
+      errorAlert('Please enter Direct');
+      return;
+    }
     else {
       let object = {
         tripeClass: value ? value : '',
@@ -252,7 +266,9 @@ const FlightSearch = ({ navigation }) => {
         dateDepart: moment(dateDepart).format('YYYY-MM-DD') ? moment(dateDepart).format('YYYY-MM-DD') : '',
         dateArrival: moment(dateArrival).format('YYYY-MM-DD') ? moment(dateArrival).format('YYYY-MM-DD') : '',
         adultsVal: adultsVal ? adultsVal : '',
-        childsVal: childsVal ? childsVal : ''
+        childsVal: childsVal ? childsVal : '',
+        infantVal: infantVal ? infantVal : '',
+        directVal: directVal ? directVal : '',
       }
       navigation.navigate('FlightListScreen', { obj: object })
     }
@@ -520,6 +536,32 @@ const FlightSearch = ({ navigation }) => {
                               placeholder="2"
                               underlineColorAndroid="transparent"
                               onChangeText={child => setChilds(child)}
+                            />
+                          </View>
+                        </View>
+                      </View>
+
+                      <View style={[styles.inputFlexD,{marginTop:0}]}>
+                        <View style={styles.innerinputFlexD}>
+                          <Text style={styles.mLabel}>Infants *</Text>
+                          <View style={styles.inputContainers}>
+                            <TextInput
+                              style={styles.inputss}
+                              placeholder="1"
+                              underlineColorAndroid="transparent"
+                              onChangeText={adult => setInfant(adult)}
+                            />
+
+                          </View>
+                        </View>
+                        <View style={styles.innerinputFlexD}>
+                          <Text style={styles.mLabel}>Direct</Text>
+                          <View style={styles.inputContainers}>
+                            <TextInput
+                              style={styles.inputss}
+                              placeholder="2"
+                              underlineColorAndroid="transparent"
+                              onChangeText={child => setDirect(child)}
                             />
                           </View>
                         </View>

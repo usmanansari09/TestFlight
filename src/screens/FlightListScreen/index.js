@@ -41,8 +41,8 @@ const FlightListScreen = ({ navigation, route }) => {
     data.append('class', obj?.tripeClass);
     data.append('adults', obj?.adultsVal);
     data.append('childs', obj?.childsVal);
-    data.append('infants', '1');
-    data.append('directFlight', '1');
+    data.append('infants', obj?.infantVal);
+    data.append('directFlight', obj?.directVal);
 
     try {
       FlightSearch(data, async (res) => {
@@ -69,7 +69,7 @@ const FlightListScreen = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-      {/* <MyStatusBar backgroundColor="#1A97D4" barStyle="light-content" /> */}
+      <MyStatusBar backgroundColor="#1A97D4" barStyle="light-content" />
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : null}>
         {loader ? (
@@ -154,7 +154,7 @@ const FlightListScreen = ({ navigation, route }) => {
                               <Image source={bags}></Image>
                               <Text style={styles.buttonText}>1 x {item.passengers[0].Baggage[0]}</Text>
                             </TouchableOpacity>
-                            
+
                             <TouchableOpacity
                               style={styles.timehour}
                               onPress={() => setExpand(!isExpand)}

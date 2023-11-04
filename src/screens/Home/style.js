@@ -141,6 +141,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 17,
     paddingHorizontal: 15,
+    width:"39%"
 
   },
   buttonTrips: {
