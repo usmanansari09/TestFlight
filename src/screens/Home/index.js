@@ -416,7 +416,7 @@ const FlightSearch = ({ navigation }) => {
                       placeholder="Dubai (DXB)"
                       onPress={handleAirportSelect()}
                       query={{
-                        key: 'AIzaSyCuC0N234IJDgCJLD6pV3YHBh0NcL29Tuw',
+                        key: '',
                         language: 'en',
                         types: 'airport',
                       }}
@@ -447,7 +447,7 @@ const FlightSearch = ({ navigation }) => {
                       placeholder="Sharjah (SHJ)"
                       onPress={handleAirportSelect2}
                       query={{
-                        key: 'AIzaSyCuC0N234IJDgCJLD6pV3YHBh0NcL29Tuw',
+                        key: '',
                         language: 'en',
                         types: 'airport',
                       }}
